@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SiniKukiss.</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <script src="https://kit.fontawesome.com/14cfca22c7.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+  <div id="loading">
+    <div class="spinner"></div>
+  </div>
+  <header>
+    <h2 class="title">SiniKukiss.</h2>
+    <ul>
+      <li><a href="#main">Beranda</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">Tentang kami</a></li>
+      <li><a href="#contact">Hubungi Kami</a></li>
+    </ul>
+    <div onclick="toogleBtn()" class="bars-icon">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </div>
+    <div class="menu-mobile">
+      <ul>
+        <li><a onclick="toogleBtn()" href="#main">Beranda</a></li>
+        <li><a onclick="toogleBtn()" href="#menu">Menu</a></li>
+        <li><a onclick="toogleBtn()" href="#about">Tentang kami</a></li>
+        <li><a onclick="toogleBtn()" href="#contact">Hubungi Kami</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="main" id="main">
+    <div class="circle"></div>
+    <div class="main-text">
+      <h3>Cookies </h3>
+      <p>Rekomendasi dari kami untuk kalian para pencinta Cookies!!</p>
+      <a href="#order" class="btn">Pesan sekarang</a>
+    </div>
+
+    <div class="main-img">
+      <img src="assets/cookies6_transt.png">
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <h3 class="menu-title">Temukan Menu Kami</h3>
+    <div class="h-line"></div>
+    <div class="menu-card">
+      <div class="menu-card-content">
+        <div class="menu-card-details">
+          <h3 class="menu-card-content-title">Original</h3>
+          <p>Cookies original dengan campuran susu yang crunchy diluar dan lembut didalam. </p>
+        </div>
+        <p class="price">8k</p>
+      </div>
+      <div class="menu-card-content">
+        <div class="menu-card-details">
+          <h3 class="menu-card-content-title">Cookies n Cream</h3>
+          <p>Cookies dengan perpaduan rasa cream, membuat harimu menjadi lebih manis. </p>
+        </div>
+        <p class="price">9k</p>
+      </div>
+      <div class="menu-card-content">
+        <div class="menu-card-details">
+          <h3 class="menu-card-content-title">Original <br> Cookies n Cream (MIX)</h3>
+          <p>Perpaduan antara coklat dan cream yang pastinya akan membuat kalian terpesona. </p>
+        </div>
+        <p class="price">10k</p>
+      </div>
+      <div class="menu-card-content">
+        <div class="menu-card-details">
+          <h3 class="menu-card-content-title">Melted Original</h3>
+          <p>Cookies original dengan campuran susu yang crunchy diluar dan lembut didalam. </p>
+        </div>
+        <p class="price">11k</p>
+      </div>
+      <div class="menu-card-content">
+        <div class="menu-card-details">
+          <h3 class="menu-card-content-title">Melted <br> Cookies n Cream</h3>
+          <p>Cookies original dengan campuran susu yang crunchy diluar dan lembut didalam. </p>
+        </div>
+        <p class="price">12k</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <img src="assets/frame1.png" alt="">
+    <div>
+      <h2 class="logo">SiniKukiss.</h2>
+      <p class="title">Tentang Kami</p>
+      <p class="content">Sinikukiss merupakan sebuah usaha di bidang Food and Beverage yang memiliki fokus terhadap
+        makanan penutup atau
+        dessert serta makanan ringan yang memiliki kemasan praktis dan dapat di bawa kemana saja, kapan saja seperti
+        cookies / kue kering. Cookies adalah makanan yang dipanggang dan biasanya berukuran kecil, datar, dan manis.
+        Cookies biasanya terdiri dari tepung, gula, dan beberapa jenis minyak atau lemak. Kukis juga dapat dicampur
+        dengan bahan-bahan lain seperti kismis, gandum, keping cokelat, kacang-kacangan, dll sebagai topping ataupun
+        isiannya. Visi Misi dari didirikannya bisnis ini adalah untuk menyajikan cookies dengan rasa yang khas dan unik
+        dari topping, isian, serta adonan cookies nya dan di sajikan dengan kualitas yang premium kepada seluruh
+        pelanggan.</p>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="order-box">
+      <h2 class="order-title">Pesan Sekarang!! Orderan akan dilayani setiap hari <span class="boldItalic">Rabu</span>
+        dengan metode pre-order via
+        Whatsapp</h2>
+      <a href="#" id="openModalBtn" class="btn-order">Pesan sekarang</a>
+    </div>
+
+  </section>
+
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal-content">
+      <div class="order-modal-title col">
+        <h3>Pesan Sekarang</h3>
+        <span id="closeModalBtn" style="font-size: 25px; cursor: pointer;">&times;</span>
+      </div>
+      <form id="orderForm" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required>
+        <div class="col">
+          <input type="text" name="nohp" placeholder="No. HP" required>
+          <input type="date" name="tanggal" id="tanggal" placeholder="tanggal" required>
+        </div>
+        <textarea type="text" name="alamat" placeholder="Alamat" required></textarea>
+        <div class="col">
+          <select name="jeniscookies" id="jeniscookies">
+            <option value="" selected>Silahkan dipilih</option>
+            <option value="Original">Original</option>
+            <option value="Cookies and Cream">Cookies and Cream</option>
+            <option value="Original Cookies and Cream (MIX)">Original Cookies and Cream (MIX)</option>
+            <option value="Melted Original">Melted Original</option>
+            <option value="Melted Cookies and Cream">Melted Cookies and Cream</option>
+          </select>
+          <div class="quantity">
+            <button type="button" id="decreaseBtn">-</button>
+            <input type="number" name="qty" placeholder="Quantity" id="quantity" value="1" readonly required>
+            <button type="button" id="increaseBtn">+</button>
+          </div>
+        </div>
+        <button class="order-button" type="submit">Order</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="testimonial">
+    <h3 class="menu-title">Apa yang pembeli katakan</h3>
+    <div class="h-line"></div>
+    <div class="testimonial-content">
+      <div class="slide">
+        <p>"Enak banget, ga cukup satu!!"</p>
+        <span>-Chel</span>
+      </div>
+      <div class="slide">
+        <p>"Baru coba 1 yang ori, Enak banget!!!"</p>
+        <span>-Elgiva</span>
+      </div>
+      <div class="slide">
+        <p>"COOKIESNYE WENAKK POLLL, UDAH ABISS!"</p>
+        <span>-Octa</span>
+      </div>
+    </div>
+    <div class="testi-btn-parent">
+      <button class="prev-btn">&larr;</button>
+      <button class="next-btn">&rarr;</button>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h3>Hubungi Kami</h3>
+    <div class="contact-wrapper">
+      <div class="social-media">
+        <div class="sosmed-content">
+          <i class="fa-brands fa-whatsapp"></i>
+          <p>082155275656</p>
+        </div>
+        <div class="sosmed-content">
+          <i class="fa-brands fa-instagram"></i>
+          <p>@sinikukiss</p>
+        </div>
+        <div class="menu-foot">
+          <h3>Menu Link</h3>
+          <ul>
+            <li><a href="#main">Beranda</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">Tentang kami</a></li>
+            <li><a href="#contact">Hubungi Kami</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="maps" style="width: 65%">
+        <iframe width="80%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+          src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Jl.%20Tanjungpura%20Gg.%20Suez+(SiniKukiss)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a
+            href="https://www.gps.ie/">gps tracker sport</a>
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+  <script src="js/utils/linkTransition.js"></script>
+  <script src="js/utils/slider.js"></script>
+  <script src="js/utils/mobileMenu.js"></script>
+  <script src="js/utils/lazyLoading.js"></script>
+  <script src="js/utils/orderModal.js"></script>
+</body>
+
+</html>
