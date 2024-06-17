@@ -2,12 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const orderForm = document.getElementById("orderForm");
   const orderModal = document.getElementById("orderModal");
 
-  orderForm.addEventListener("submit", (e) => {
+  orderForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(orderForm);
     const data = Object.fromEntries(formData);
-    console.log(data);
-    fetch("/api/pesan", {
+    await fetch("/api/pesan", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

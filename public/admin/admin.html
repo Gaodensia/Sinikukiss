@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+  <header class="admin-head">
+    <h2 class="title">SiniKukiss.</h2>
+    <p>Admin Dashboard</p>
+  </header>
+  <div class="table-wrapper">
+    <table border="1" id="order-data">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>No. HP</th>
+          <th>Tanggal</th>
+          <th>Alamat</th>
+          <th>Jenis Cookies</th>
+          <th>Jumlah</th>
+          <th> - </th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <div class="modal-title">
+        <h2>Update Order</h2>
+        <span class="close" id="closeBtn">&times;</span>
+      </div>
+      <form id="orderForm" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required>
+        <input type="text" name="nohp" placeholder="No. HP" required>
+        <input type="date" name="tanggal" id="tanggal" placeholder="tanggal" required>
+        <textarea type="text" name="alamat" placeholder="Alamat" required></textarea>
+        <select name="jeniscookies" id="jeniscookies">
+          <option value="" selected>Silahkan dipilih</option>
+          <option value="Original">Original</option>
+          <option value="Cookies and Cream">Cookies and Cream</option>
+          <option value="Original Cookies and Cream (MIX)">Original Cookies and Cream (MIX)</option>
+          <option value="Melted Original">Melted Original</option>
+          <option value="Melted Cookies and Cream">Melted Cookies and Cream</option>
+        </select>
+        <div class="quantity">
+          <button type="button" id="decreaseBtn">-</button>
+          <input type="number" name="qty" placeholder="Quantity" id="quantity" value="1" readonly required>
+          <button type="button" id="increaseBtn">+</button>
+        </div>
+        <button class="order-button" type="submit">Order</button>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+
+</html>
