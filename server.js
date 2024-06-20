@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const path = require("path");
+const session = require("express-session")
+const crypto = require("crypto")
 
 const app = express();
 const port = 3000;
@@ -9,6 +11,15 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
+
+const secretKey = crypto.randomBytes(64).toString("hex") // random secretkey
+
+app.use(session({
+  secret: secretKey,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {secure: false}
+}))
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -26,9 +37,42 @@ app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "public", "index.html"))
 );
 
-app.get("/admin", (req, res) =>
+function checkAuth(req,res,next) {
+  if(req.session.loggedIn) next()
+    else redirect("/login")
+}
+
+app.get("/admin", checkAuth, (req, res) =>
   res.sendFile(path.join(__dirname, "public/admin", "admin.html"))
 );
+
+app.get("/login", (req,res) => {
+  res.sendFile(path.join(__dirname, "public/admin", "login.html"))
+})
+
+app.post("/api/login", (req,res) => {
+  const {username, password} = req.body
+  const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
+
+  db.query(sql, [username, password], (err,result) => {
+    if (err) return res.status(400).json({error: err.message})
+    if(result.length > 0) {
+      req.session.loggedIn = true;
+      req.session.username = username;
+      return res.status(200).json({message: "Berhasil login!", success: true});
+    } else {
+      return res.status(401).json({message: "Username atau Password salah", success: false})
+    }
+    
+  })
+})
+
+app.post("/api/logout", (req, res) => {
+  req.session.destroy((err) => {
+    if(err) return res.status(400).json({error: err.message})
+    res.redirect("/login")
+  })
+})
 
 app.post("/api/pesan", (req, res) => {
   const { nama, nohp, tanggal, alamat, jeniscookies, qty } = req.body;

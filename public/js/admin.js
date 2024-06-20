@@ -105,6 +105,21 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
+  document.getElementById('logoutButton').addEventListener('click', async function () {
+    const response = await fetch('/api/logout', {
+      method: 'POST',
+    });
+  
+    if (response.ok) {
+      window.location.href = '/login';
+    } else {
+      const result = await response.json();
+      const messageDiv = document.getElementById('message');
+      messageDiv.textContent = result.error;
+      messageDiv.style.color = 'red';
+    }
+  });
+
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
   });
